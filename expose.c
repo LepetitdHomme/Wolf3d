@@ -12,17 +12,34 @@
 
 #include "wolf.h"
 
+static int	putimg(t_mlx *m, t_spr *spr, int i)
+{
+	int	h;
+
+	if (m == NULL)
+		return (1);
+	if (i == 0)
+		h = SCR_H - HUD - spr->h;
+	else
+		h = (i == 1) ? SCR_H - (HUD) : SCR_H - (HUD - 8);
+	mlx_put_image_to_window(m->scr, m->win, spr->d, SCR_W / 2 - spr->w / 2, h);
+	return (0);
+}
+
 static int	put_sprites(t_mlx *m)
 {
 	t_spr	*d;
+	//t_spr	*hud;
+	t_spr	*dg;
 
 	if ((d = get_static_gun(NULL)) == NULL)
-	{
-		DEBUG;
 		return (1);
-	}
-	mlx_put_image_to_window(m->scr, m->win, d->d, SCR_W / 2 - d->w / 2, SCR_H -
-	HUD - d->h);
+	if ((dg = get_static_dg(NULL)) == NULL)
+		return (1);
+	//hud = &m->spr->hud;
+	putimg(m, d, 0);
+	//putimg(m, hud, 1);
+	putimg(m, dg, 2);
 	return (0);
 }
 

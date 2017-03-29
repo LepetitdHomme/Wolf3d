@@ -75,6 +75,10 @@ typedef struct		s_all_txt
 	void			*D;
 	void			*F;
 	void			*S;
+	void			*dg;
+	void			*dg2;
+	void			*dg3;
+	void			*hud;
 }					t_all_txt;
 
 typedef struct		s_spr
@@ -97,6 +101,10 @@ typedef struct		s_all_spr
 	t_spr			sg9;
 	t_spr			sg10;
 	t_spr			sg11;
+	t_spr			dg;
+	t_spr			dg2;
+	t_spr			dg3;
+	t_spr			hud;
 }					t_all_spr;
 
 typedef struct		s_key

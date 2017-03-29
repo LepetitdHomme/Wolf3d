@@ -69,6 +69,8 @@ int		refresh(t_mlx *mlx)
 		move(MOVE_LEFT, mlx);
 	if (mlx->keys.mr == 1 && (refresh = 1))
 		move(MOVE_RIGHT, mlx);
+	if (doomguy(mlx, clock()) == 0)
+		refresh = 1;
 	if (mlx->keys.sp == 1)
 		refresh = 1;
 	if (refresh == 1)

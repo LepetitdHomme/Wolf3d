@@ -33,6 +33,7 @@ static int		Init_static(t_mlx **mlx)
 	get_static_level(NULL);
 	get_static_textures(1);
 	get_static_textureF(1);
+	get_static_time(clock());
 	return (0);
 }
 
@@ -68,6 +69,8 @@ int				Init_mlx(t_mlx *mlx)
 	horizon(mlx) != 0 || Init_textures(mlx) != 0)
 		return (1);
 	get_static_gun(&(mlx->spr->sg1));
+	get_static_dg(&(mlx->spr->dg));
+	get_static_numdg(1);
 	mlx->img = NULL;
 	return (0);
 }

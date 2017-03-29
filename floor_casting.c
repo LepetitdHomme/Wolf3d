@@ -75,7 +75,7 @@ int				get_texture_floor(t_mlx *mlx, t_img *d, t_all_data *t, int x)
 
 	get_wall(mlx, x, &f.xstart, &f.ystart);
 	f.x = x;
-	while (y < SCR_H)
+	while (y < SCR_H - HUD)
 	{
 		f.p = get_weight(mlx->horizon[y - (SCR_H / 2)], 0, mlx->dist[x]);
 		f.xw = f.p * f.xstart + (1.0 - f.p) * mlx->player->x;

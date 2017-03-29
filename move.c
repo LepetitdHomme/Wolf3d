@@ -12,18 +12,32 @@
 
 #include "wolf.h"
 
+static int	check_in_grid(t_mlx *m, double z, int i)
+{
+	if (i == 0 && (int)z >= 0 && (int)z < m->lvl_h)
+		return (0);
+	if (i == 1 && (int)z >= 0 && (int)z < m->lvl_w)
+		return (0);
+	DEBUG;
+	return (1);
+}
+
 static int	lateral(int key, t_mlx *m)
 {
 	double	dirx;
 	double	diry;
 	double	a;
+	double	test;
 
 	a = (key == MOVE_LEFT) ? -ANGLE : ANGLE;
+	test = SPEED * 1.25;
 	dirx = m->player->lookx * cos(a) - (m->player->looky * sin(a));
 	diry = m->player->lookx * sin(a) + (m->player->looky * cos(a));
-	if (m->level[(int)m->player->y][(int)(m->player->x + dirx * 0.75)] == 0)
+	if (check_in_grid(m, m->player->x + dirx * test, 1) == 0 &&
+	m->level[(int)m->player->y][(int)(m->player->x + dirx * test)] == 0)
 		m->player->x += dirx * SPEED;
-	if (m->level[(int)(m->player->y + diry * 0.75)][(int)m->player->x] == 0)
+	if (check_in_grid(m, m->player->y + diry * test, 0) == 0 &&
+	m->level[(int)(m->player->y + diry * test)][(int)m->player->x] == 0)
 		m->player->y += diry * SPEED;
 	return (0);
 }
@@ -35,19 +49,23 @@ int			move(int key, t_mlx *m)
 
 	if (m == NULL)
 		return (1);
-	test = 0.75;
+	test = SPEED * 1.25;
 	if (key == MOVE_FORWARD)
 	{
-		if (m->level[(int)m->player->y][(int)(m->player->x + m->player->lookx * test)] == 0)
+		if (check_in_grid(m, m->player->x + m->player->lookx * test, 1) == 0 &&
+		m->level[(int)m->player->y][(int)(m->player->x + m->player->lookx * test)] == 0)
 			m->player->x += m->player->lookx * SPEED;
-		if (m->level[(int)(m->player->y + m->player->looky * test)][(int)m->player->x] == 0)
+		if (check_in_grid(m, m->player->y + m->player->looky * test, 0) == 0 &&
+		m->level[(int)(m->player->y + m->player->looky * test)][(int)m->player->x] == 0)
 			m->player->y += m->player->looky * SPEED;
 	}
 	if (key == MOVE_BACKWARD)
 	{
-		if (m->level[(int)m->player->y][(int)(m->player->x - m->player->lookx * test)] == 0)
+		if (check_in_grid(m, m->player->x - m->player->lookx * test, 1) == 0 &&
+		m->level[(int)m->player->y][(int)(m->player->x - m->player->lookx * test)] == 0)
 			m->player->x -= m->player->lookx * SPEED;
-		if (m->level[(int)(m->player->y - m->player->looky * test)][(int)m->player->x] == 0)
+		if (check_in_grid(m, m->player->y - m->player->looky * test, 0) == 0 &&
+		m->level[(int)(m->player->y - m->player->looky * test)][(int)m->player->x] == 0)
 			m->player->y -= m->player->looky * SPEED;
 	}
 	if (key == MOVE_LEFT || key == MOVE_RIGHT)

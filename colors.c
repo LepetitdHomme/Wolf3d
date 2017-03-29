@@ -78,11 +78,11 @@ int			colors(t_mlx *mlx, t_img *d, t_all_data *t, int w)
 	down = SCR_H / 2 + mlx->height[w] / 2;
 	while (h < SCR_H)
 	{
-		if (h < top && get_static_textureF(-1) != 0)
+		if (h < top && h >= HUD && get_static_textureF(-1) != 0)
 			do_sky(mlx, d, w, h);
-		else if (h >= top && h < down)
+		else if (h >= top && h < down && h >= HUD && h < SCR_H - HUD)
 			do_walls(d, t, w, h);
-		else if (h >= down && h < SCR_H && get_static_textureF(-1) != 0)
+		else if (h >= down && h < SCR_H - HUD && get_static_textureF(-1) != 0)
 			do_floor(mlx, d, w, h);
 		else if (h >= down && h < SCR_H && get_static_textureF(-1) == 0)
 		{

@@ -11,6 +11,7 @@ SRC =   animation.c\
 		bmp2.c\
 		bmp3.c\
 		colors.c\
+		doomguy.c\
 		error.c\
 		expose.c\
 		floor_casting.c\
@@ -24,6 +25,7 @@ SRC =   animation.c\
 		rotate.c\
 		set_image.c\
 		static.c\
+		static2.c\
 		texture.c\
 		tools.c\
 

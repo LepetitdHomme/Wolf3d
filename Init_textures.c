@@ -62,7 +62,11 @@ static int	load_txt_gun(t_mlx *m)
 	x(m, &m->spr->sg8, "textures/shotg/sg8.xpm") != 0 ||
 	x(m, &m->spr->sg9, "textures/shotg/sg9.xpm") != 0 ||
 	x(m, &m->spr->sg10, "textures/shotg/sg10.xpm") != 0 ||
-	x(m, &m->spr->sg11, "textures/shotg/sg11.xpm") != 0)
+	x(m, &m->spr->sg11, "textures/shotg/sg11.xpm") != 0 ||
+	x(m, &m->spr->dg, "textures/HUD/dg.xpm") != 0 ||
+	x(m, &m->spr->dg2, "textures/HUD/dg2.xpm") != 0 ||
+	x(m, &m->spr->dg3, "textures/HUD/dg3.xpm") != 0 ||
+	x(m, &m->spr->hud, "textures/HUD/fond.xpm") != 0)
 		return (1);
 	return (0);
 }
