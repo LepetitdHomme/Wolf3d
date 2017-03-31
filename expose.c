@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 11:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 15:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/03/31 08:41:10 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,13 @@ static int	putimg(t_mlx *m, t_spr *spr, int i)
 static int	put_sprites(t_mlx *m)
 {
 	t_spr	*d;
-	//t_spr	*hud;
 	t_spr	*dg;
 
 	if ((d = get_static_gun(NULL)) == NULL)
 		return (1);
 	if ((dg = get_static_dg(NULL)) == NULL)
 		return (1);
-	//hud = &m->spr->hud;
 	putimg(m, d, 0);
-	//putimg(m, hud, 1);
 	putimg(m, dg, 2);
 	return (0);
 }
@@ -88,6 +85,7 @@ int			expose_image(t_mlx *mlx)
 		return (1);
 	if (set_image(mlx) != 0)
 		return (1);
+	mlx_clear_window(mlx->scr, mlx->win);
 	mlx_put_image_to_window(mlx->scr, mlx->win, mlx->img, 0, 0);
 	put_sprites(mlx);
 	return (0);

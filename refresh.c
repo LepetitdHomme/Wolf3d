@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/03/31 09:08:40 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		key_press(int key, t_mlx *mlx)
 		mlx->keys.ml = 1;
 	if (key == MOVE_RIGHT)
 		mlx->keys.mr = 1;
-	if (key == SPACE && mlx->keys.sp == 0)
+	if (key == KEY_SPACE && mlx->keys.sp == 0)
 		animation(mlx);
 	if (key == KEY_ESC)
 		exit(EXIT_SUCCESS);

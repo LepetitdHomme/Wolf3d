@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/03/31 09:03:32 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int			doomguy(t_mlx *m, clock_t new)
 {
 	clock_t	old;
 
-	old = get_static_time(-1);
-	if (abs(old / CLOCKS_PER_SEC - new / CLOCKS_PER_SEC) < 1)
+	old = get_static_time(0);
+	if ((old / CLOCKS_PER_SEC) + 1 > new / CLOCKS_PER_SEC)
 		return (1);
 	get_static_time(new);
 	swap_numdg();

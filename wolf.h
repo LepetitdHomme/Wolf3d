@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/03/31 08:16:22 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,17 @@
 	# define KEY_TXTF 102
 	# define KEY_ESC 65307
 	# define SPACE 32
+# elif __APPLE__
+	# define LOOK_LEFT 123
+	# define LOOK_RIGHT 124
+	# define MOVE_FORWARD 13
+	# define MOVE_BACKWARD 1
+	# define MOVE_LEFT 0
+	# define MOVE_RIGHT 2
+	# define KEY_TXT 17
+	# define KEY_TXTF 3
+	# define KEY_ESC 53
+	# define KEY_SPACE 49
 # endif
 
 # define ANGLE M_PI_2

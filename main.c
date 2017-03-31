@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/03/31 09:04:56 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int				main(void)
 	mlx_do_key_autorepeaton(mlx->scr);
 	mlx_hook(mlx->win, 2, 1L << 0, key_press, mlx);
 	mlx_hook(mlx->win, 3, 1L << 1, key_release, mlx);
+	mlx_hook(mlx->win, 17, 1, refresh, mlx);
 	mlx_expose_hook(mlx->win, expose_screen, mlx);
 	mlx_loop_hook(mlx->scr, refresh, mlx);
 	mlx_loop(mlx->scr);

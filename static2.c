@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/03/31 08:58:59 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ clock_t	get_static_time(clock_t new)
 {
 	static clock_t old = 0;
 
-	if (new != -1)
+	if (new != 0)
 		old = new;
 	return (old);
 }
