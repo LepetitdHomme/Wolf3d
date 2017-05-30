@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 11:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/31 08:41:10 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/27 22:09:52 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int			expose_image(t_mlx *mlx)
 		return (1);
 	if (set_image(mlx) != 0)
 		return (1);
-	mlx_clear_window(mlx->scr, mlx->win);
+//	mlx_clear_window(mlx->scr, mlx->win);
 	mlx_put_image_to_window(mlx->scr, mlx->win, mlx->img, 0, 0);
 	put_sprites(mlx);
 	return (0);
