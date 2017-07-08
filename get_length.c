@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 13:49:43 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int			get_length(t_mlx *mlx, t_ray ray, int w)
 	if (mlx == NULL || mlx->dist == NULL)
 		return (1);
 	if (ray.side == 0)
-		mlx->dist[w] = (ray.gridX - ray.x + (1 - ray.stepX) / 2) / ray.lookx;
+		mlx->dist[w] = (ray.gridx - ray.x + (1 - ray.stepx) / 2) / ray.lookx;
 	else
-		mlx->dist[w] = (ray.gridY - ray.y + (1 - ray.stepY) / 2) / ray.looky;
+		mlx->dist[w] = (ray.gridy - ray.y + (1 - ray.stepy) / 2) / ray.looky;
 	if (fill_tool(mlx, ray, w) != 0)
 		return (1);
 	if (ray.side == 0)

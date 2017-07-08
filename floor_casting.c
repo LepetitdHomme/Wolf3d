@@ -6,15 +6,15 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/19 19:35:08 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 14:30:28 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 
-static double	get_weight(double curD, double playD, double wallD)
+static double	get_weight(double curd, double playd, double walld)
 {
-	return ((curD - playD) / (wallD - playD));
+	return ((curd - playd) / (walld - playd));
 }
 
 static double	pix(double x)
@@ -28,22 +28,22 @@ static int		get_wall(t_mlx *m, int x, double *x2, double *y2)
 	{
 		if (m->tool[x].ray.lookx > 0)
 		{
-			*x2 = m->tool[x].ray.gridX;
-			*y2 = m->tool[x].ray.gridY + m->tool[x].modulo;
+			*x2 = m->tool[x].ray.gridx;
+			*y2 = m->tool[x].ray.gridy + m->tool[x].modulo;
 			return (0);
 		}
-		*x2 = m->tool[x].ray.gridX + 1.0;
-		*y2 = m->tool[x].ray.gridY + m->tool[x].modulo;
+		*x2 = m->tool[x].ray.gridx + 1.0;
+		*y2 = m->tool[x].ray.gridy + m->tool[x].modulo;
 		return (0);
 	}
 	if (m->tool[x].ray.looky > 0)
 	{
-		*x2 = m->tool[x].ray.gridX + m->tool[x].modulo;
-		*y2 = m->tool[x].ray.gridY;
+		*x2 = m->tool[x].ray.gridx + m->tool[x].modulo;
+		*y2 = m->tool[x].ray.gridy;
 		return (0);
 	}
-	*x2 = m->tool[x].ray.gridX + m->tool[x].modulo;
-	*y2 = m->tool[x].ray.gridY + 1.0;
+	*x2 = m->tool[x].ray.gridx + m->tool[x].modulo;
+	*y2 = m->tool[x].ray.gridy + 1.0;
 	return (0);
 }
 
@@ -57,22 +57,24 @@ static int		fill_data(t_img *d, t_all_data *t, t_floor f, int y)
 		return (1);
 	sky = (f.x * d->b / 8) + ((SCR_H - y) * d->l);
 	floor = (f.x * d->b / 8) + (y * d->l);
-	tex = ((int)f.xw * t->F.b / 8) + ((int)f.yw * t->F.l);
-	d->d[sky] = t->S.d[tex];
-	d->d[sky + 1] = t->S.d[tex + 1];
-	d->d[sky + 2] = t->S.d[tex + 2];
-	d->d[sky + 3] = t->S.d[tex + 3];
-	d->d[floor] = t->F.d[tex];
-	d->d[floor + 1] = t->F.d[tex + 1];
-	d->d[floor + 2] = t->F.d[tex + 2];
-	d->d[floor + 3] = t->F.d[tex + 3];
+	tex = ((int)f.xw * t->f.b / 8) + ((int)f.yw * t->f.l);
+	d->d[sky] = t->s.d[tex];
+	d->d[sky + 1] = t->s.d[tex + 1];
+	d->d[sky + 2] = t->s.d[tex + 2];
+	d->d[sky + 3] = t->s.d[tex + 3];
+	d->d[floor] = t->f.d[tex];
+	d->d[floor + 1] = t->f.d[tex + 1];
+	d->d[floor + 2] = t->f.d[tex + 2];
+	d->d[floor + 3] = t->f.d[tex + 3];
 	return (0);
 }
+
 int				get_texture_floor(t_mlx *mlx, t_img *d, t_all_data *t, int x)
 {
 	t_floor	f;
-	int		y = SCR_H / 2 + mlx->height[x] / 2;
+	int		y;
 
+	y = SCR_H / 2 + mlx->height[x] / 2;
 	get_wall(mlx, x, &f.xstart, &f.ystart);
 	f.x = x;
 	while (y < SCR_H - HUD)
@@ -87,4 +89,3 @@ int				get_texture_floor(t_mlx *mlx, t_img *d, t_all_data *t, int x)
 	}
 	return (0);
 }
-

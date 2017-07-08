@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/01/27 17:53:35 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 14:15:57 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	init_bmp(t_bmp *bmp)
 	bmp->xpermeter = 0;
 	bmp->ypermeter = 0;
 	bmp->color = 0;
-	bmp->Fcolor = 0;
+	bmp->fcolor = 0;
 	bmp->palette = NULL;
 	return (0);
 }
@@ -43,7 +43,7 @@ static int	header_file(t_bmp *bmp, FILE *flux)
 	if (fread(&bmp->sizefile, 4, 1, flux) < 1)
 		return (error(1));
 	if (fread(&bmp->reserved1, 4, 1, flux) < 1)
-		return(error(1));
+		return (error(1));
 	if (fread(&bmp->offset, 4, 1, flux) < 1)
 		return (error(1));
 	return (0);
@@ -73,9 +73,9 @@ static int	header_bmp(t_bmp *bmp, FILE *flux)
 		return (error(1));
 	if (fread(&bmp->color, 4, 1, flux) < 1)
 		return (error(1));
-	if (fread(&bmp->Fcolor, 4, 1, flux) < 1)
+	if (fread(&bmp->fcolor, 4, 1, flux) < 1)
 		return (error(1));
-	return(0);
+	return (0);
 }
 
 static int	palette(t_bmp *bmp, FILE *flux)

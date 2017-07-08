@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 13:45:04 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	fill_image(t_mlx *mlx, t_img *d, t_all_data *t)
 	return (0);
 }
 
-static int	get_data(void	*s, t_img *img)
+static int	get_data(void *s, t_img *img)
 {
 	if (s == NULL || img == NULL)
 		return (1);
@@ -49,8 +49,8 @@ int			set_image(t_mlx *m)
 	if (get_data(m->img, &d) != 0 || get_data(m->txt->w, &t.w) != 0 ||
 	get_data(m->txt->w2, &t.w2) != 0 || get_data(m->txt->w3, &t.w3) != 0 ||
 	get_data(m->txt->w4, &t.w4) != 0 || get_data(m->txt->w5, &t.w5) != 0 ||
-	get_data(m->txt->w6, &t.w6) != 0 || get_data(m->txt->D, &t.D) != 0 ||
-	get_data(m->txt->F, &t.F) != 0 || get_data(m->txt->S, &t.S) != 0)
+	get_data(m->txt->w6, &t.w6) != 0 || get_data(m->txt->d, &t.d) != 0 ||
+	get_data(m->txt->f, &t.f) != 0 || get_data(m->txt->s, &t.s) != 0)
 		return (1);
 	if (fill_image(m, &d, &t) != 0)
 		return (1);

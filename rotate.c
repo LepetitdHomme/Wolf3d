@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 11:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 15:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 12:44:24 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		rotate(int key, t_mlx *mlx)
 		return (1);
 	a = (key == LOOK_LEFT) ? -ROT : ROT;
 	tmp = mlx->player->lookx;
-	mlx->player->lookx = (mlx->player->lookx * cos(a)) - (mlx->player->looky * sin(a));
+	mlx->player->lookx = (mlx->player->lookx * cos(a)) -
+		(mlx->player->looky * sin(a));
 	mlx->player->looky = (tmp * sin(a)) + (mlx->player->looky * cos(a));
 	tmp = mlx->player->scrx;
 	mlx->player->scrx = mlx->player->scrx * cos(a) - mlx->player->scry * sin(a);

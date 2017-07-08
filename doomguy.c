@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/31 09:03:32 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 12:33:34 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ int			doomguy(t_mlx *m, clock_t new)
 	swap_dg(m, get_static_numdg(-1));
 	return (0);
 }
-

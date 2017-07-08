@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Init_textures.c                                    :+:      :+:    :+:   */
+/*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/19 19:16:25 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 13:45:40 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 
-int	key_texture(int key, t_mlx *mlx)
+int			key_texture(int key, t_mlx *mlx)
 {
 	if (key == KEY_TXT)
 	{
@@ -21,8 +21,8 @@ int	key_texture(int key, t_mlx *mlx)
 	}
 	else if (key == KEY_TXTF)
 	{
-		get_static_textureF(-1) == 1 ? get_static_textureF(0) :
-		get_static_textureF(1);
+		get_static_texturef(-1) == 1 ? get_static_texturef(0) :
+		get_static_texturef(1);
 	}
 	set_image(mlx);
 	return (expose_screen(mlx));
@@ -36,9 +36,9 @@ static int	load_txt_walls(t_mlx *mlx)
 	(mlx->txt->w4 = bmp_to_img("textures/wall/Black1.bmp")) == NULL ||
 	(mlx->txt->w5 = bmp_to_img("textures/wall/Stone7.bmp")) == NULL ||
 	(mlx->txt->w6 = bmp_to_img("textures/wall/Stone5.bmp")) == NULL ||
-	(mlx->txt->D = bmp_to_img("textures/wall/Door5.bmp")) == NULL ||
-	(mlx->txt->F = bmp_to_img("textures/wall/FLOOR.bmp")) == NULL ||
-	(mlx->txt->S = bmp_to_img("textures/wall/SKY.bmp")) == NULL)
+	(mlx->txt->d = bmp_to_img("textures/wall/Door5.bmp")) == NULL ||
+	(mlx->txt->f = bmp_to_img("textures/wall/FLOOR.bmp")) == NULL ||
+	(mlx->txt->s = bmp_to_img("textures/wall/SKY.bmp")) == NULL)
 		return (1);
 	return (0);
 }
@@ -71,8 +71,7 @@ static int	load_txt_gun(t_mlx *m)
 	return (0);
 }
 
-
-int			Init_textures(t_mlx *mlx)
+int			init_textures(t_mlx *mlx)
 {
 	if (mlx == NULL)
 		return (1);

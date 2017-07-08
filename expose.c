@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 11:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/31 08:41:10 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 14:10:15 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	reset_tabs(t_mlx *mlx)
 	if (mlx->dist != NULL)
 		free(mlx->dist);
 	if ((mlx->dist = (double *)malloc(sizeof(double) * SCR_W)) == NULL)
-			return (1);
+		return (1);
 	if (mlx->height != NULL)
 		free(mlx->height);
 	if ((mlx->height = (int *)malloc(sizeof(int) * SCR_W)) == NULL)
@@ -79,7 +79,7 @@ int			expose_image(t_mlx *mlx)
 {
 	if (reset_tabs(mlx) != 0)
 		return (1);
-	if (raycasting(mlx) != 0)
+	if (raycasting(mlx, -1) != 0)
 		return (1);
 	if (get_height(mlx) != 0)
 		return (1);

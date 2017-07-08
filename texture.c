@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/19 18:12:44 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 13:50:41 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static int	which_tx(t_all_data *t, t_img **a, t_mlx *mlx, int x2)
 	int		x;
 	int		y;
 
-	y = mlx->tool[x2].ray.gridY;
-	x = mlx->tool[x2].ray.gridX;
+	y = mlx->tool[x2].ray.gridy;
+	x = mlx->tool[x2].ray.gridx;
 	if (mlx->level[y][x] == 1)
 		*a = &t->w;
 	else if (mlx->level[y][x] == 2)
@@ -28,7 +28,7 @@ static int	which_tx(t_all_data *t, t_img **a, t_mlx *mlx, int x2)
 	else if (mlx->level[y][x] == 4)
 		*a = &t->w4;
 	else if (mlx->level[y][x] == 5)
-		*a = &t->D;
+		*a = &t->d;
 	else if (mlx->level[y][x] == 6)
 		*a = &t->w5;
 	else if (mlx->level[y][x] == 7)
@@ -55,4 +55,3 @@ char		*get_texture_color(t_mlx *mlx, int x, int y, t_all_data *t)
 		return (NULL);
 	return (&a->d[(int)x2 + (int)y2]);
 }
-

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Init_level.c                                       :+:      :+:    :+:   */
+/*   init_level.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 11:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 15:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 12:32:20 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	get_lvl(t_mlx *mlx, int fd)
 	return (0);
 }
 
-int			Init_level(t_mlx *mlx, char *str)
+int			init_level(t_mlx *mlx, char *str)
 {
 	int		fd;
 	char	*buf;

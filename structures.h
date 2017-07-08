@@ -6,7 +6,7 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 13:52:09 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct		s_bmp
 	int				xpermeter;
 	int				ypermeter;
 	int				color;
-	int				Fcolor;
+	int				fcolor;
 	unsigned int	*palette;
 }					t_bmp;
 
@@ -51,7 +51,7 @@ typedef struct		s_img
 	int				e;
 }					t_img;
 
-typedef struct		t_all_data
+typedef struct		s_all_data
 {
 	t_img			w;
 	t_img			w2;
@@ -59,9 +59,9 @@ typedef struct		t_all_data
 	t_img			w4;
 	t_img			w5;
 	t_img			w6;
-	t_img			D;
-	t_img			F;
-	t_img			S;
+	t_img			d;
+	t_img			f;
+	t_img			s;
 }					t_all_data;
 
 typedef struct		s_all_txt
@@ -72,9 +72,9 @@ typedef struct		s_all_txt
 	void			*w4;
 	void			*w5;
 	void			*w6;
-	void			*D;
-	void			*F;
-	void			*S;
+	void			*d;
+	void			*f;
+	void			*s;
 	void			*dg;
 	void			*dg2;
 	void			*dg3;
@@ -124,15 +124,15 @@ typedef struct		s_ray
 	double			y;
 	double			lookx;
 	double			looky;
-	double			camX;
-	int				gridX;
-	int				gridY;
-	double			FsideX;
-	double			FsideY;
+	double			camx;
+	int				gridx;
+	int				gridy;
+	double			fsidex;
+	double			fsidey;
 	double			dx;
 	double			dy;
-	int				stepX;
-	int				stepY;
+	int				stepx;
+	int				stepy;
 	int				touche;
 	int				side;
 }					t_ray;

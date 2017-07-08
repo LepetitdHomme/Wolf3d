@@ -6,11 +6,17 @@
 /*   By: csellier <csellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:53:32 by csellier          #+#    #+#             */
-/*   Updated: 2017/03/27 11:24:30 by csellier         ###   ########.fr       */
+/*   Updated: 2017/04/03 14:19:35 by csellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
+
+int		closewolf(t_mlx *mlx)
+{
+	(void)mlx;
+	exit(EXIT_SUCCESS);
+}
 
 int		horizon(t_mlx *mlx)
 {
